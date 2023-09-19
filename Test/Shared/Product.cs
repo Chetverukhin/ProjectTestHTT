@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Test.Shared
+﻿namespace Test.Shared
 {
-    internal class Product
+    public class Product
     {
+        public string ProductId { get; set; }
+        public string Name { get; set; }
+        public decimal Cost { get; set; }
+        public string Genre { get; set; }
+        public string Author { get; set; }
     }
 }
