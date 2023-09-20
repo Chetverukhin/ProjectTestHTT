@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Test.Shared;
-using Test.Server.Helper;
 
 namespace Test.Server.Data
 {
@@ -11,7 +10,7 @@ namespace Test.Server.Data
 
         public ProjectDdContext(DbContextOptions<ProjectDdContext> option) : base(option) 
         {
-            Database.Migrate();
+            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Collections.Generic;
+using Microsoft.IdentityModel.Tokens;
 using Test.Server.Data;
+using Test.Server.Helper;
 using Test.Shared;
 
 namespace Test.Server.Controllers
@@ -20,7 +20,17 @@ namespace Test.Server.Controllers
         [HttpGet]
         public IEnumerable<ProductResponseModel> Get()
         {
-            //FileProvider.SaveDataBase(_context.Genres, "DB_Genres");
+            if (_context.Products.IsNullOrEmpty())
+            {
+                _context.Products.AddRangeAsync(Initialization.GetProducts());
+                _context.SaveChanges();
+            }
+
+            if (_context.Genres.IsNullOrEmpty())
+            {
+                _context.Genres.AddRangeAsync(Initialization.GetGenres());
+                _context.SaveChanges();
+            }
 
 
             var model = _context.Products.Join(_context.Genres,

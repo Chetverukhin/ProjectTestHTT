@@ -7,12 +7,29 @@ namespace Test.Server.Helper
     {
         public static List<Product> GetProducts()
         {
-            var products = JsonConvert.DeserializeObject<List<Product>>(File.ReadAllText(GetPath("DB_Products")));
-            return products;
+            return JsonConvert.DeserializeObject<List<Product>>(File.ReadAllText("DB_Products.json")).Select(p => new Product
+            {
+                ProductName = p.ProductName,
+                Cost = p.Cost,
+                Author = p.Author,
+                GenreId = p.GenreId,
+            }).ToList();
         }
+
         public static List<Genre> GetGenres()
         {
-            var genres = JsonConvert.DeserializeObject<List<Genre>>(File.ReadAllText(GetPath("DB_Genres")));
+            var genresName = new[] { "Детектив", "Фантастика", "Фентези", "Проза" };
+
+            var genres = new List<Genre>();
+            foreach (var genre in genresName)
+            {
+                genres.Add(new Genre
+                {
+                    GenreName = genre,
+                    Description = string.Empty,
+                });
+            }
+
             return genres;
         }
         public static string GetPath(string fileName)
