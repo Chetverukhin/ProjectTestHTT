@@ -1,0 +1,22 @@
+[
+  {
+    "Id": 1,
+    "GenreName": "Детектив",
+    "Description": ""
+  },
+  {
+    "Id": 2,
+    "GenreName": "Фантастика",
+    "Description": ""
+  },
+  {
+    "Id": 3,
+    "GenreName": "Фентези",
+    "Description": ""
+  },
+  {
+    "Id": 4,
+    "GenreName": "Проза",
+    "Description": ""
+  }
+]

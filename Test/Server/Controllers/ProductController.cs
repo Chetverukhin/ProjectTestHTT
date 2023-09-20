@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using Test.Server.Data;
-using Test.Server.Helper;
 using Test.Shared;
 
 namespace Test.Server.Controllers
@@ -18,21 +16,8 @@ namespace Test.Server.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ProductResponseModel> Get()
+        public IEnumerable<ProductResponseModel> GetAllProducts()
         {
-            if (_context.Products.IsNullOrEmpty())
-            {
-                _context.Products.AddRangeAsync(Initialization.GetProducts());
-                _context.SaveChanges();
-            }
-
-            if (_context.Genres.IsNullOrEmpty())
-            {
-                _context.Genres.AddRangeAsync(Initialization.GetGenres());
-                _context.SaveChanges();
-            }
-
-
             var model = _context.Products.Join(_context.Genres,
                 p => p.GenreId,
                 g => g.Id,

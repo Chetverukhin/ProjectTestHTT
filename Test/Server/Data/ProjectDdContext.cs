@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Test.Server.Helper;
 using Test.Shared;
 
 namespace Test.Server.Data
@@ -19,6 +20,12 @@ namespace Test.Server.Data
                 .WithMany(g => g.Products)
                 .HasForeignKey(p => p.GenreId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            var genres = Initialization.GetGenres();
+            var products = Initialization.GetProducts();
+
+            modelBuilder.Entity<Genre>().HasData(genres);
+            modelBuilder.Entity<Product>().HasData(products);
         }
     }
 }

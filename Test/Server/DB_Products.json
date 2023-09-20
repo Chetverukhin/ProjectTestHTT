@@ -1,71 +1,83 @@
 [
   {
+    "Id": 1,
     "ProductName": "Я, Робот",
     "Cost": 595.0,
     "GenreId": 2,
     "Author": "Айзек Азимов"
   },
   {
+    "Id": 2,
     "ProductName": "Академия",
     "Cost": 434.0,
     "GenreId": 2,
     "Author": "Айзек Азимов"
   },
   {
+    "Id": 3,
     "ProductName": "Сердца трех",
     "Cost": 299.0,
     "GenreId": 4,
     "Author": "Джек Лондон"
   },
   {
+    "Id": 4,
     "ProductName": "Дорога",
     "Cost": 708.0,
     "GenreId": 2,
     "Author": "Маккарти Кормак"
   },
   {
+    "Id": 5,
     "ProductName": "О мышах и людях",
     "Cost": 575.0,
     "GenreId": 4,
     "Author": "Джон Стейнбек"
   },
   {
+    "Id": 6,
     "ProductName": "Пастушья корона",
     "Cost": 745.0,
     "GenreId": 3,
     "Author": "Терри Пратчетт"
   },
   {
+    "Id": 7,
     "ProductName": "Меч Предназначения",
     "Cost": 519.0,
     "GenreId": 3,
     "Author": "Анджей Сапковский"
   },
   {
+    "Id": 8,
     "ProductName": "Девушка с татуировкой дракона",
     "Cost": 602.0,
     "GenreId": 1,
     "Author": "Стиг Ларссон"
   },
   {
+    "Id": 9,
     "ProductName": "Автостопом по галактике",
     "Cost": 920.0,
     "GenreId": 2,
     "Author": "Дуглас Адамс"
   },
   {
+    "Id": 10,
     "ProductName": "Путешествия Тафа",
     "Cost": 819.0,
     "GenreId": 3,
     "Author": "Джордж Р.Р. Мартин"
   },
   {
+    "Id": 11,
     "ProductName": "Кари Мора",
     "Cost": 406.0,
     "GenreId": 1,
     "Author": "Томас Харрис"
   },
   {
+    "Id": 12,
     "ProductName": "Макбет",
     "Cost": 406.0,
     "GenreId": 1,
