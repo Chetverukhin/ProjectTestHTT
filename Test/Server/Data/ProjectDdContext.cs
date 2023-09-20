@@ -10,7 +10,7 @@ namespace Test.Server.Data
 
         public ProjectDdContext(DbContextOptions<ProjectDdContext> option) : base(option) 
         {
-
+            Database.Migrate();
         }        
     }
 }

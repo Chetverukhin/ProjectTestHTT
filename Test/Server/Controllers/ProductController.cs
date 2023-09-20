@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Test.Server.Data;
 using Test.Shared;
 
@@ -16,26 +15,21 @@ namespace Test.Server.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public IEnumerable<ProductResponseModel> Get()
         {
-            //var model = _context.Products.Join(_context.Genres,
-            //    p => p.ProductId,
-            //    g => g.GenreId,
-            //    (p, g) => new ProductModel
-            //    {
-            //        Name = p.Name,
-            //        Cost = p.Cost,
-            //        Author = p.Author,
-            //        GenreName = g.GenreName
-            //    });
-            return View();
+            var model = _context.Products.Join(_context.Genres,
+                p => p.Genre.GenreId,
+                g => g.GenreId,
+                (p, g) => new ProductResponseModel
+                {
+                    Name = p.ProductName,
+                    Cost = p.Cost,
+                    Author = p.Author,
+                    GenreName = g.GenreName
+                });
+
+            return model.ToList();
         }
-    }
-    public class ProductModel
-    {
-        public string Name { get; set; }
-        public decimal Cost { get; set; }
-        public string Author { get; set; }
-        public string GenreName { get; set; }
     }
 }

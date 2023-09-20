@@ -1,9 +1,46 @@
 ﻿@page "/"
+@inject HttpClient Http
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Product Details</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Product Details</h1>
 
-Welcome to your new app.
+<button class="btn btn-primary" @onclick="ShowDetails">Get Table</button>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@if (details == null)
+{
+    <p><em>Press Button...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Author</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in details)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Cost</td>
+                    <td>@product.Author</td>
+                    <td>@product.GenreName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ProductResponseModel> details;
+
+    private async Task ShowDetails()
+    {
+        details = await Http.GetFromJsonAsync<List<ProductResponseModel>>("Product");
+    }
+}
