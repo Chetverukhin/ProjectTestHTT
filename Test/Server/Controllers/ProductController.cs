@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using Test.Server.Data;
 using Test.Shared;
 
@@ -18,12 +20,15 @@ namespace Test.Server.Controllers
         [HttpGet]
         public IEnumerable<ProductResponseModel> Get()
         {
+            //FileProvider.SaveDataBase(_context.Genres, "DB_Genres");
+
+
             var model = _context.Products.Join(_context.Genres,
-                p => p.Genre.GenreId,
-                g => g.GenreId,
+                p => p.GenreId,
+                g => g.Id,
                 (p, g) => new ProductResponseModel
                 {
-                    Name = p.ProductName,
+                    ProductName = p.ProductName,
                     Cost = p.Cost,
                     Author = p.Author,
                     GenreName = g.GenreName
