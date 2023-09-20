@@ -18,16 +18,16 @@ namespace Test.Server.Controllers
 
         public IActionResult Index()
         {
-            var model = _context.Products.Join(_context.Genres,
-                p => p.ProductId,
-                g => g.GenreId,
-                (p, g) => new ProductModel
-                {
-                    Name = p.Name,
-                    Cost = p.Cost,
-                    Author = p.Author,
-                    GenreName = g.GenreName
-                });
+            //var model = _context.Products.Join(_context.Genres,
+            //    p => p.ProductId,
+            //    g => g.GenreId,
+            //    (p, g) => new ProductModel
+            //    {
+            //        Name = p.Name,
+            //        Cost = p.Cost,
+            //        Author = p.Author,
+            //        GenreName = g.GenreName
+            //    });
             return View();
         }
     }
